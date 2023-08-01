@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/8f783000-066d-4a8c-a21a-832223e41ca0/resourceGroups/az-aue-au-rg-dev-dpp-neil/providers/Microsoft.Web/sites/web-app-neil-test-1",
+    "appService.deploySubpath": "."
+}
