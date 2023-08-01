@@ -53,8 +53,8 @@ def find_vin():
     
     if not vin:
         return jsonify({"error": "VIN parameter is missing."}), 400
-
     connection = get_db_connection()
+
     if not connection:
         return jsonify({"error": "Failed to connect to the database."}), 500
 
@@ -68,7 +68,8 @@ def find_vin():
             shshuctlg, model = row
             return jsonify({"VIN": vin, "SHASHUCTLG": shshuctlg, "MODEL": model})
         else:
-            return jsonify({"error": "VIN not found in the database."}), 404
+            return jsonify({"error": "No Records Found"}), 404
+        
     except pyodbc.Error as e:
         print(f"Error executing the query: {str(e)}")
         return jsonify({"error": "Error executing the query."}), 500
