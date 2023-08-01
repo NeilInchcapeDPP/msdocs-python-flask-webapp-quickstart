@@ -62,7 +62,7 @@ def find_vin():
     query = f"SELECT SHASHUCTLG, MODEL FROM [raw].[epcsub_M_SYARYO_210901] WHERE VIN_AFTER = ?"
     
     try:
-        cursor.execute(query, (vin,))
+        cursor.execute(query, (vin, ))
         row = cursor.fetchone()
         if row:
             shshuctlg, model = row
