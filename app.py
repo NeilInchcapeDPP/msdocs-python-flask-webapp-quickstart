@@ -56,7 +56,7 @@ def find_vin():
     connection = get_db_connection()
 
     if not connection:
-        return jsonify({"error": "Failed to connect to the database."}), 500
+        return jsonify({"error": "Failed connect to the database."}), 500
 
     cursor = connection.cursor()
     query = f"SELECT SHASHUCTLG, MODEL FROM [raw].[epcsub_M_SYARYO_210901] WHERE VIN_AFTER = ?"
