@@ -46,38 +46,7 @@ def hello():
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
-"""
-@app.route('/vin', methods=['GET'])
-def find_vin():
-    vin = request.args.get('VIN', '')
-    
-    if not vin:
-        return jsonify({"error": "VIN parameter is missing."}), 400
-    connection = get_db_connection()
 
-    if not connection:
-        return jsonify({"error": "Failed connect to the database."}), 500
-
-    cursor = connection.cursor()
-    query = f"SELECT SHASHUCTLG, MODEL FROM [raw].[epcsub_M_SYARYO_210901] WHERE VIN_AFTER = ?"
-    
-    try:
-        cursor.execute(query, (vin, ))
-        row = cursor.fetchone()
-        if row:
-            shshuctlg, model = row
-            return jsonify({"VIN": vin, "SHASHUCTLG": shshuctlg, "MODEL": model})
-        else:
-            return jsonify({"error": "No Records Found"}), 404
-        
-    except pyodbc.Error as e:
-        print(f"Error executing the query: {str(e)}")
-        return jsonify({"error": "Error executing the query."}), 500
-    finally:
-        cursor.close()
-        connection.close()
-   
-"""
 
 if __name__ == '__main__':
    app.run()
